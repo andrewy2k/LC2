@@ -1,0 +1,16 @@
+version: "3"
+services:
+  angular:
+    image: angular
+    restart: always
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: lc2-angular
+    working_dir: /application/src
+    command: /bin/bash -c "npm i && npm run serve"
+    volumes:
+      - ./:/application/
+    ports:
+      - "4215:4200"
+
